@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Conversion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Varela+Round&display=swap');
+
+        html {
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        form {
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        button {
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        body {
+            font-family: 'Varela Round', sans-serif;
+            background-color: #157701;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin-top: -20px;
+            /* Adjusted margin to move everything higher */
+        }
+
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: -10px;
+            /* Adjusted margin to move the heading higher */
+        }
+
+        .conversion-buttons {
+            display: flex;
+            margin-top: 10px;
+            /* Adjusted margin to move the buttons higher */
+        }
+
+        .conversion-buttons button {
+            margin-right: 10px;
+            background-color: #8a0505;
+            /* Blue color */
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .conversion-buttons button:last-child {
+            margin-right: 0;
+        }
+
+        .conversion-buttons button:hover {
+            background-color: #5d0505;
+        }
+
+        .conversion-buttons button:disabled {
+            background-color: #103F91;
+            /* Gray color for disabled state */
+            cursor: not-allowed;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            align-self: center;
+        }
+
+        label {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #008000;
+            /* Green color */
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #006b0e;
+            border-radius: 4px;
+        }
+
+        button.convert-btn {
+            background-color: #006b0e;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+
+            /* Flexbox styles for centering */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Margin auto to center within parent */
+            margin: auto;
+        }
+
+        button.convert-btn:hover {
+            background-color: #1a641e;
+        }
+        .jumpscare {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        cursor: pointer;
+        visibility: hidden;
+        z-index: 9999; /* Ensure it's on top */
+        }
+        img {
+            width: 0;
+            height: 0;
+            object-fit: cover;
+            visibility: hidden; /* Hide the image initially */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>WORD TO PDF</h1>
+    <form action="/convert_word_to_pdf" method="post" enctype="multipart/form-data">
+        <label for="fileInput">Select a file:</label>
+        <input type="file" id="fileInput" name="fileInput" accept=".docx">
+        <br>
+        <button class="convert-btn" type="submit" onclick="showJumpscare()">Convert & Download</button>
+        
+    </form>
+    <div class="conversion-buttons">
+        <button onclick="location.href='/convert_pdf_to_word'" type="button">PDF to Word</button>
+        <button onclick="location.href='/convert_word_to_pdf'" type="button" disabled>Word to PDF</button>
+    </div>
+    <img id="jumpscare" src="../static/jumpscare.jpg" />
+    <audio id="scream" src="../static/jumpscareAudio.mp3" preload="auto"></audio>
+
+
+    <script>
+       
+
+        function showJumpscare() {
+            var jumpscare = document.getElementById("jumpscare");
+            var screamAudio = document.getElementById("scream");
+            jumpscare.style.visibility = "visible";
+            jumpscare.style.width = "150%";
+            jumpscare.style.height = "120%";
+            screamAudio.play();
+        }
+        document.querySelector('.convert-btn').disabled = false;
+    </script>
+</body>
+
+</html>
