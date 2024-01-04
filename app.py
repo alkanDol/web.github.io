@@ -24,6 +24,10 @@ os.makedirs(CONVERTED_FOLDER, exist_ok=True)
 def start():
     return render_template('start.html')
 
+@app.route('/ads.txt')
+def ads():
+    return render_template('ads.txt')
+
 @app.route('/convert_pdf_to_word')
 def index():
     return render_template('index.html')
