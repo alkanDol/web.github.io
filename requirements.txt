@@ -1,0 +1,7 @@
+pip install flask
+pip install converter
+pip install BytesIO
+pip install Document
+pip install reportlab
+pip install canvas
+pip install letter
