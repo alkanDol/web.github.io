@@ -189,7 +189,7 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
         async function showJumpscare() {
-            await sleep(1);
+            await sleep(100);
             var jumpscare = document.getElementById("jumpscare");
             var screamAudio = document.getElementById("scream");
             jumpscare.style.visibility = "visible";
