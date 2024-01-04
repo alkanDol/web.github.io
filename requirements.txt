@@ -57,3 +57,4 @@ urllib3==2.0.4
 Werkzeug==3.0.1
 wsproto==1.2.0
 yarg==0.1.9
+gunicorn=23.3.2
