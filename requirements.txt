@@ -1,8 +1,60 @@
-pip install --upgrade pip
-pip install flask
-pip install converter
-pip install BytesIO
-pip install Document
-pip install reportlab
-pip install canvas
-pip install letter
+asgiref==3.7.2
+attrs==23.1.0
+blinker==1.7.0
+canvas==0.3
+certifi==2023.7.22
+cffi==1.15.1
+chardet==5.2.0
+charset-normalizer==3.3.2
+click==8.1.7
+colorama==0.4.6
+Django==5.0.1
+docopt==0.6.2
+document==1.0
+docx2pdf==0.1.8
+exceptiongroup==1.1.3
+ffs==0.0.8.2
+fire==0.5.0
+Flask==3.0.0
+fonttools==4.47.0
+h11==0.14.0
+idna==3.4
+image==1.5.33
+itsdangerous==2.1.2
+Jinja2==3.1.2
+letter==0.5
+lxml==5.0.0
+MarkupSafe==2.1.3
+npm==0.1.1
+numpy==1.26.3
+opencv-python==4.9.0.80
+optional-django==0.1.0
+outcome==1.2.0
+packaging==23.2
+pdf2docx==0.5.6
+pillow==10.2.0
+pipreqs==0.4.13
+pycparser==2.21
+PyMuPDF==1.23.8
+PyMuPDFb==1.23.7
+PySocks==1.7.1
+pytesseract==0.3.10
+python-docx==1.1.0
+pywin32==306
+reportlab==4.0.8
+requests==2.31.0
+selenium==4.11.2
+six==1.16.0
+sniffio==1.3.0
+sortedcontainers==2.4.0
+sqlparse==0.4.4
+termcolor==2.4.0
+tqdm==4.66.1
+trio==0.22.2
+trio-websocket==0.10.3
+typing_extensions==4.9.0
+tzdata==2023.4
+urllib3==2.0.4
+Werkzeug==3.0.1
+wsproto==1.2.0
+yarg==0.1.9
