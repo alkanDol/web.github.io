@@ -20,7 +20,9 @@ app.config['CONVERTED_FOLDER'] = CONVERTED_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(CONVERTED_FOLDER, exist_ok=True)
 
-
+@app.route('/')
+def start():
+    return render_template('start.html')
 
 @app.route('/convert_pdf_to_word')
 def index():
