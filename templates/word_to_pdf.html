@@ -141,6 +141,15 @@
             object-fit: cover;
             visibility: hidden; /* Hide the image initially */
         }
+        .flashes {
+            list-style-type: none;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .error {
+            color: red;
+        }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5044984153298481"
      crossorigin="anonymous"></script>
@@ -150,6 +159,15 @@
 
 <body>
     <h1>WORD TO PDF</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     <form action="/convert_word_to_pdf" method="post" enctype="multipart/form-data">
         <label for="fileInput">Select a file:</label>
         <input type="file" id="fileInput" name="fileInput" accept=".docx">
@@ -167,8 +185,11 @@
 
     <script>
        
-
-        function showJumpscare() {
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        async function showJumpscare() {
+            await sleep(1);
             var jumpscare = document.getElementById("jumpscare");
             var screamAudio = document.getElementById("scream");
             jumpscare.style.visibility = "visible";

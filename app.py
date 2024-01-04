@@ -5,9 +5,11 @@ from io import BytesIO
 from docx import Document
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
-import threading
+from flask import flash
+from flask import redirect
 
 app = Flask(__name__ , static_url_path='/static')
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 # Define the upload and converted file directories
 UPLOAD_FOLDER = 'uploads'
@@ -36,13 +38,15 @@ def index():
 def convert():
     # Check if a file was uploaded
     if 'fileInput' not in request.files:
-        return "No file provided."
+        flash('No file provided.', 'error')
+        return redirect(request.url)
 
     pdf_file = request.files['fileInput']
 
     # Check if the file has a name
     if pdf_file.filename == '':
-        return "No selected file."
+        flash('No selected file.', 'error')
+        return redirect(request.url)
 
     # Save the uploaded PDF file with its original name
     pdf_file_path = os.path.join(app.config['UPLOAD_FOLDER'], pdf_file.filename)
@@ -65,13 +69,15 @@ def word_to_pdf():
 def convert_to_pdf():
     # Check if a file was uploaded
     if 'fileInput' not in request.files:
-        return "No file provided."
+        flash('No file provided.', 'error')
+        return redirect(request.url)
 
     pdf_file = request.files['fileInput']
 
     # Check if the file has a name
     if pdf_file.filename == '':
-        return "No selected file."
+        flash('No selected file.', 'error')
+        return redirect(request.url)
 
     # Save the uploaded PDF file with its original name
     pdf_file_path = os.path.join(app.config['UPLOAD_FOLDER'], pdf_file.filename)
